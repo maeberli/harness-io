@@ -8,6 +8,7 @@ metadata:
     app.kubernetes.io/name: {{ include "helmHook.name" . }}
     helm.sh/chart: {{ include "helmHook.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
+    release: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   {{- with .Values.ingress.annotations }}
   annotations:
