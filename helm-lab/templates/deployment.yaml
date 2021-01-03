@@ -6,6 +6,7 @@ metadata:
     app.kubernetes.io/name: {{ include "helmHook.name" . }}
     helm.sh/chart: {{ include "helmHook.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
+    release: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
@@ -18,6 +19,7 @@ spec:
       labels:
         app.kubernetes.io/name: {{ include "helmHook.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
+        release: {{ .Release.Name }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
