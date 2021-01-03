@@ -5,6 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: {{ include "helmHook.name" . | lower}}
     helm.sh/chart: {{ include "helmHook.chart" . }}
+    release: {{ .Release.Name }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
